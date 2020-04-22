@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
@@ -11,32 +12,46 @@ namespace Airlines.XAirlines.Helpers
 {
     public class CabinCrewPlansHelper
     {
+
         public static async Task<Crew> ReadJson(string userEmailId)
         {
-            string location = ApplicationSettings.BaseUrl;
-            userEmailId = userEmailId.ToLower();
-            var value = userEmailId.First();
-            if (userEmailId.Contains("v-")) // Check for v- emailIds.
-                value = userEmailId.Skip(2).First();
-            int fileNumber = (value % 5) + 1;
-            string file = System.Web.Hosting.HostingEnvironment.MapPath(@"~\TestData\" + fileNumber + ".json");
-            DateTime filelastmodified = File.GetLastWriteTime(file).Date;
-            DateTime currentDate = DateTime.Now.Date;
-            if (filelastmodified.Date != currentDate.Date) UpdateMockData(file);
-
-            string data = string.Empty;
-            if (File.Exists(file))
+            Crew crews = null;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync($"https://eycabincrewapi.azurewebsites.net/api/roster?employeeId={userEmailId}");
+            if (response.IsSuccessStatusCode)
             {
-                using (StreamReader reader = new StreamReader(file))
-                {
-                    data = await reader.ReadToEndAsync();
-                    Crew crews = (new JavaScriptSerializer().Deserialize<Crew>(data));
-                    return crews;
-                }
+                string json = await response.Content.ReadAsStringAsync();
+                crews = new JavaScriptSerializer().Deserialize<Crew>(json);
             }
-            else
-                return null;
+            return crews;
         }
+
+        //public static async Task<Crew> ReadJson(string userEmailId)
+        //{
+        //    string location = ApplicationSettings.BaseUrl;
+        //    userEmailId = userEmailId.ToLower();
+        //    var value = userEmailId.First();
+        //    if (userEmailId.Contains("v-")) // Check for v- emailIds.
+        //        value = userEmailId.Skip(2).First();
+        //    int fileNumber = (value % 5) + 1;
+        //    string file = System.Web.Hosting.HostingEnvironment.MapPath(@"~\TestData\" + fileNumber + ".json");
+        //    DateTime filelastmodified = File.GetLastWriteTime(file).Date;
+        //    DateTime currentDate = DateTime.Now.Date;
+        //    if (filelastmodified.Date != currentDate.Date) UpdateMockData(file);
+
+        //    string data = string.Empty;
+        //    if (File.Exists(file))
+        //    {
+        //        using (StreamReader reader = new StreamReader(file))
+        //        {
+        //            data = await reader.ReadToEndAsync();
+        //            Crew crews = (new JavaScriptSerializer().Deserialize<Crew>(data));
+        //            return crews;
+        //        }
+        //    }
+        //    else
+        //        return null;
+        //}
 
         public static async Task<List<Plan>> WeeksPlan(string userEmailId)
         {

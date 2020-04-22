@@ -319,6 +319,7 @@
     <Content Include="Manifest\color.png" />
     <None Include="Properties\PublishProfiles\airlinecabincrew - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\airlinecabincrew - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Manifest\outline.png" />
     <Content Include="Resources\clipboard.PNG" />
