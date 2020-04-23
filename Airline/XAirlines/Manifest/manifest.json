@@ -2,21 +2,21 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.3/MicrosoftTeams.schema.json",
   "manifestVersion": "1.3",
   "version": "1.0.1",
-  "id": "efe4fdeb-ac05-44d5-bf13-b1533786be25",
-  "packageName": "com.etihad.airlines.xairlines",
+  "id": "3d61973b-5a83-494e-8e3f-8738cbbaca06",
+  "packageName": "com.etihad.cabincrew.xairlines",
   "developer": {
     "name": "Industry Demo Team",
     "websiteUrl": "https://www.microsoft.com",
     "privacyUrl": "https://www.microsoft.com/privacy",
-    "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
+    "termsOfUseUrl": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx"
   },
   "name": {
-    "short": "Airlines",
-    "full": "Airlines Demo App for Microsoft Teams"
+    "short": "Roster",
+    "full": "Airlines Cabin Crew App for Microsoft Teams"
   },
   "description": {
-    "short": "Airlines app for Microsoft Teams",
-    "full": "This sample Airlines app demos roster information. You can extend this to add more content and capabilities."
+    "short": "Roster Airlines app for Microsoft Teams",
+    "full": "Airlines app roster information. You can extend this to add more content and capabilities."
   },
   "icons": {
     "outline": "outline.png",

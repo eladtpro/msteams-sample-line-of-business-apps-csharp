@@ -394,6 +394,28 @@
     </None>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaggageInfo\Airline.BaggageInfoBot.csproj">
+      <Project>{0ba0b7df-bf44-4ac3-a355-49e106b848e7}</Project>
+      <Name>Airline.BaggageInfoBot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FleetInfoBot\Airline.FleetInfoBot.csproj">
+      <Project>{54d2b6f3-7fb3-400f-ba90-d456da511aa9}</Project>
+      <Name>Airline.FleetInfoBot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlightInfo\Airline.FlightInfoBot.csproj">
+      <Project>{6357a12d-5fdd-4d3b-b38f-316edffe0113}</Project>
+      <Name>Airline.FlightInfoBot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlightTeamCreation\Airline.FlightTeamCreationBot.csproj">
+      <Project>{9c7e3a46-b60f-4052-9a21-dc8d1a942216}</Project>
+      <Name>Airline.FlightTeamCreationBot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PassengerInfo\Airline.PassengerInfoBot.csproj">
+      <Project>{e7a02b0d-a563-4cb8-ac6b-1d85272c5d7f}</Project>
+      <Name>Airline.PassengerInfoBot</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
