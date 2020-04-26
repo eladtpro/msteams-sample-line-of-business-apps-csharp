@@ -72,5 +72,5 @@
     "identity",
     "messageTeamMembers"
   ],
-  "validDomains": [ "airlinecabincrew.azurewebsites.net", "*.botframework.com" ]
+  "validDomains": [ "airlinecabincrew.azurewebsites.net", "*.botframework.com", "eycabincrewteamsapp.azurewebsites.net" ]
 }
